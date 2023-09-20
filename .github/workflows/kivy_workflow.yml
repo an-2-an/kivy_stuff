@@ -4,22 +4,22 @@ on:
 
 jobs:
 # Build job. Builds app for Android with Buildozer
-build-android:
-  name: Build for Android
-  runs-on: ubuntu-latest
-
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Build with Buildozer
-      uses: an-2-an/kivy_stuff@v1
-      id: buildozer
-      with:
-        buildozer_version: stable
-
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: package
-        path: ${{ steps.buildozer.outputs.filename }}
+  build-android:
+    name: Build for Android
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+  
+      - name: Build with Buildozer
+        uses: an-2-an/kivy_stuff@v1
+        id: buildozer
+        with:
+          buildozer_version: stable
+  
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: package
+          path: ${{ steps.buildozer.outputs.filename }}
