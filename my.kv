@@ -1,0 +1,73 @@
+<CustomLabel@Label>:
+    font_size: 30
+    halign: 'left'
+    text_size: self.size
+
+<Container>:
+    rows: 3
+    text_input: text_input
+    salt: salt
+    nitro: nitro
+    dextrose: dextrose
+    starts: starts
+    salting_time: salting_time
+
+    AnchorLayout:
+        size_hint: 0.8, 0.2
+
+        TextInput:
+            id: text_input
+            multiline: False
+            font_size: 60
+            input_type: 'number'
+            input_filter: 'int'
+
+    GridLayout:
+        cols: 2
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [30, 0,  0, 0]
+
+            CustomLabel:
+                text: 'salt'
+            CustomLabel:
+                text: 'nitrite salt'
+            CustomLabel:
+                text: 'dextrose'
+            CustomLabel:
+                text: 'starter cultures'
+            CustomLabel:
+                text: 'salting (days)'
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [50, 0,  0, 0]
+
+            CustomLabel:
+                id: salt
+                text: '0'
+            CustomLabel:
+                id: nitro
+                text: '0'
+            CustomLabel:
+                id: dextrose
+                text: '0'
+            CustomLabel:
+                id: starts
+                text: '0'
+            CustomLabel:
+                id: salting_time
+                text: '0'
+
+    BoxLayout:
+        size_hint: 0.8, 0.3
+        padding: 20
+        Button:
+            text: 'go'
+            font_size: 40
+            on_release:
+                root.calculate()
+
+
+
